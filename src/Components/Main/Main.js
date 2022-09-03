@@ -1,12 +1,14 @@
 
 import React from 'react';
 
-import { Container } from './Main.Styled';
+import { Container, Title } from './Main.Styled';
 import Pedal from '../Pedal/Pedal';
 
 const Main = () => (
 
   <Container>
+
+    <Title>Expression Flipper</Title>
 
     <Pedal />
 

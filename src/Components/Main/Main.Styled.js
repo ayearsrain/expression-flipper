@@ -10,3 +10,11 @@ export const Container = styled.main`
   margin: 0 auto;
 
 `;
+
+export const Title = styled.h1`
+
+  text-align: center;
+
+  margin: 0 0 2rem 0;
+
+`;
