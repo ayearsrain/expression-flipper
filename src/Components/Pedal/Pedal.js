@@ -6,7 +6,7 @@ import Led from '../Led/Led';
 import Switch from '../Switch/Switch';
 import { Case, Label, Grid, GridItem } from './Pedal.Styled';
 
-const Pedal = () => {
+const Pedal = ( { onChange } ) => {
 
   const minRatio = 0;
   const maxRatio = 10;
@@ -36,6 +36,8 @@ const Pedal = () => {
 
   const handleSwitchPress = () => {
 
+    tick.current = 0;
+
     setIsEnabled( currentValue => !currentValue );
 
   };
@@ -44,17 +46,29 @@ const Pedal = () => {
 
     let interval;
 
+    const handleValueChange = ( newValue ) => {
+  
+      if( newValue !== value ) {
+    
+        onChange && onChange( newValue );
+  
+      }
+  
+      setValue( newValue );
+  
+    };
+
     if( isEnabled ) {
 
       interval = setInterval( () => {
 
         if( tick.current < ratio ) {
 
-          setValue( 0 );
+          handleValueChange( 0 );
 
         } else {
 
-          setValue( 1 );
+          handleValueChange( 1 );
 
         }
 
@@ -78,7 +92,7 @@ const Pedal = () => {
 
     };
 
-  }, [rate, ratio, isEnabled] );
+  }, [rate, ratio, isEnabled, value] );
 
   return (
   
