@@ -8,7 +8,7 @@ import Pedal from '../Pedal/Pedal';
 const Main = () => {
 
   const [midiOutputs, setMidiOutputs] = useState();
-  const [selectedMidiOutput, setSelectedMidiOutput] = useState();
+  const [selectedMidiOutput, setSelectedMidiOutput] = useState( null );
 
   const [midiCcMessageA, setMidiCcMessageA] = useState( 0 );
   const [midiCcValueA, setMidiCcValueA] = useState( 0 );
